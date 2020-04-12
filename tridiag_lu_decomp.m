@@ -1,11 +1,12 @@
 % tridiagonal matrix solver for x in Ax = d
-function [alpha, beta, z, x] = tridiag_lu_decomp(n, a, b, c, d)
+function [alpha, beta, z, x] = tridiag_lu_decomp(a, b, c, d)
 % INPUT
-% n: size of matrix A
 % a: diagonal values of A
 % b: lower diagonal values of A (1st value will be ignored)
 % c: upper diagonal values of A (nth value will be ignored)
 % d: vector in Ax = d
+% all these vectors must be the same length
+
 % following criteria must be met for the script to work
 % |a1| > |c1|, |an| > |bn|
 % |ai| >= |bi| + |ci| and bici != 0 for i = 2,3,...,n-1
@@ -17,11 +18,11 @@ function [alpha, beta, z, x] = tridiag_lu_decomp(n, a, b, c, d)
 % x: solution (vector values of x in Ax = d)
 
 % validate input
-assert(n > 2, 'n must be > 2') % tridiagonal
-assert(length(a) == n, 'length of a should be n')
-assert(length(b) == n, 'length of b should be n')
-assert(length(c) == n, 'length of c should be n')
-assert(length(d) == n, 'length of d should be n')
+n = length(a);
+assert(n > 2, 'length of a must be > 2') % tridiagonal
+assert(length(b) == n, 'length of b should be same as a')
+assert(length(c) == n, 'length of c should be same as a')
+assert(length(d) == n, 'length of d should be same as a')
 assert(abs(a(1)) > abs(c(1)), 'criteria not met: |a1| > |c1|')
 assert(abs(a(n)) > abs(c(n)), 'criteria not met: |an| > |cn|')
 for i=2:n-1
