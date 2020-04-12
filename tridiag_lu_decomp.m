@@ -55,3 +55,5 @@ x(n) = z(n) / alpha(n);
 for i=n-1:-1:1
     x(i) = (z(i) - (c(i)*x(i+1)))/alpha(i);
 end
+
+end
