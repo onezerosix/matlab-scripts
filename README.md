@@ -5,7 +5,7 @@ A collection of MATLAB scripts.
 ### Table of Contents
 
 1. [Tridiagonal LU Decomposition Matrix Solver](#Tridiagonal-LU-Decomposition-Matrix-Solver)  
-  a. [Example usage](#Example-usage)
+  a. [Example](#Example)
 
 ### Tridiagonal LU Decomposition Matrix Solver
 
