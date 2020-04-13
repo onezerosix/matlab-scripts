@@ -7,9 +7,9 @@ The input values for each function are generally not validated other than their 
 ### Table of Contents
 
 1. [Tridiagonal LU Decomposition Matrix Solver](#Tridiagonal-LU-Decomposition-Matrix-Solver)  
-  a. [Example](#Example~1)
+  a. [Example 1](#Example~1)
 2. [Least-Square Plot Using QR Decomposition](#Least-Square-Plot-Using-QR-Decomposition)  
-  b. [Example](#Example~2)
+  b. [Example 2](#Example~2)
 
 ### Tridiagonal LU Decomposition Matrix Solver
 
@@ -24,7 +24,7 @@ The `a`, `b` and `c` variables are used as vector inputs for the script. The val
 The output includes vector `x` and vector `z` such that `z = Ux`. It also includes vectors `alpha` and `beta` such that:  
 <img src="https://raw.githubusercontent.com/onezerosix/misc-matlab-scripts/master/pictures/tridiag_lu_decomp_LU.png" width="70%" alt="L and U matrices">
 
-##### Example
+##### Example 1
 ```
 >> [alpha, beta, z, x] = tridiag_lu_decomp([2;2;2;2;2], [1;1;1;1;1], [1;1;1;1;1], [3;4;4;4;3])
 
@@ -54,7 +54,7 @@ A = [ e^-1  e^-2 ]
 
 Two assumptions made for the script are: `A` has rank n and m >= n.
 
-##### Example
+##### Example 2
 
 ```
 >> [x] = lsquare_plot_with_qr([0;.5;1;1.3;2;3], [0;1.6;2;1.93;1.06;0.38], {@(t)exp(-t), @(t)exp(-2*t)})
