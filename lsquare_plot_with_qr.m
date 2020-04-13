@@ -1,6 +1,6 @@
 function [x] = lsquare_plot_with_qr(t, y, basis, plot_step)
-% LSQUARE_PLOT_WITH_QR solve Ax = y for x in the least-square sense and
-% plot the least-square fit using QR decomposition.
+% LSQUARE_PLOT_WITH_QR Solves Ax = y for x in the least-square sense and
+% plots the least-square fit using QR decomposition.
 %
 % INPUT
 % t & y: m paired input cordinates
@@ -15,10 +15,10 @@ function [x] = lsquare_plot_with_qr(t, y, basis, plot_step)
 % validate and possibly default input
 m = length(t);
 assert(m > 0, 'length of t must be > 0')
-assert(length(y) == m, 'length of y should be same as t')
+assert(length(y) == m, 'length of y must be same as t')
 n = length(basis);
 assert(n > 0, 'length of basis must be > 0')
-if nargin == 3 || plot_step == 0
+if nargin == 3 || plot_step <= 0
     plot_step = 0.01;
 end
 
@@ -47,16 +47,16 @@ for i = n : -1 : 1
 end
 
 % make the curve from basis functions
-numbers = min(t) : plot_step:max(t);
-curve = x(1) * basis{1}(numbers);
+lsquare_x = min(t) : plot_step:max(t);
+lsquare_y = x(1) * basis{1}(lsquare_x);
 for i = 2 : n
-    curve = curve + x(i) * basis{i}(numbers);
+    lsquare_y = lsquare_y + x(i) * basis{i}(lsquare_x);
 end
 
 % plot the given data points and the curve
 scatter(t,y);
 hold on
-plot(numbers,curve);
+plot(lsquare_x,lsquare_y);
 hold off
 
 end
