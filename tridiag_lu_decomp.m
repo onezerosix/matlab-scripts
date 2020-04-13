@@ -1,5 +1,5 @@
 function [alpha, beta, z, x] = tridiag_lu_decomp(a, b, c, d)
-% TRIDIAG_LU_DECOMP tridiagonal matrix solver for x in Ax = d
+% TRIDIAG_LU_DECOMP A tridiagonal matrix solver for x in Ax = d.
 %
 % INPUT
 % a: diagonal values of A
@@ -21,9 +21,9 @@ function [alpha, beta, z, x] = tridiag_lu_decomp(a, b, c, d)
 % validate input
 n = length(a);
 assert(n > 2, 'length of a must be > 2') % tridiagonal
-assert(length(b) == n, 'length of b should be same as a')
-assert(length(c) == n, 'length of c should be same as a')
-assert(length(d) == n, 'length of d should be same as a')
+assert(length(b) == n, 'length of b must be same as a')
+assert(length(c) == n, 'length of c must be same as a')
+assert(length(d) == n, 'length of d must be same as a')
 assert(abs(a(1)) > abs(c(1)), 'criteria not met: |a1| > |c1|')
 assert(abs(a(n)) > abs(c(n)), 'criteria not met: |an| > |cn|')
 for i=2:n-1
