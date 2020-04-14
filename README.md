@@ -1,4 +1,4 @@
-# misc-matlab-scripts
+# matlab-scripts
 
 A collection of MATLAB scripts.
 
