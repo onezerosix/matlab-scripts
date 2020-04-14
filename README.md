@@ -13,7 +13,7 @@ The input values for each function are generally not validated other than their 
 3. [Natural Clamped Cubic Spline](#natural-clamped-cubic-spline)  
   a. [Example](#example-2)
 4. [Inverse Quadratic Interpolation](#inverse-quadratic-interpolation)  
-  a. [Example](#example~3)
+  a. [Example](#example-3)
 
 ### Tridiagonal LU Decomposition Matrix Solver
 
