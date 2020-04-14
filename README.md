@@ -6,10 +6,12 @@ The input values for each function are generally not validated other than their 
 
 ### Table of Contents
 
-1. [Tridiagonal LU Decomposition Matrix Solver](#Tridiagonal-LU-Decomposition-Matrix-Solver)  
-  a. [Example 1](#Example)
-2. [Least-Square Plot Using QR Decomposition](#Least-Square-Plot-Using-QR-Decomposition)  
-  b. [Example 2](#Example-1)
+1. [Tridiagonal LU Decomposition Matrix Solver](#tridiagonal-lu-decomposition-matrix-solver)  
+  a. [Example](#example)
+2. [Least-Square Plot Using QR Decomposition](#least-square-plot-using-qr-decomposition)  
+  b. [Example](#example-1)
+3. [Natural Clamped Cubic Spline](#natural-clamped-cubic-spline-)  
+  b. [Example](#example-2)
 
 ### Tridiagonal LU Decomposition Matrix Solver
 
@@ -52,8 +54,6 @@ A = [ e^-1  e^-2 ]
     [ e^-2  e^-4 ]
 ```
 
-Two assumptions made for the script are: `A` has rank n and m >= n.
-
 ##### Example
 
 ```
@@ -63,4 +63,27 @@ x =
     8.3282
    -8.4245
 ```
-<img src="https://raw.githubusercontent.com/onezerosix/misc-matlab-scripts/master/pictures/lsquare_plot_with_qr_example_graph.png" width="45%" alt="example plot">
+<img src="https://raw.githubusercontent.com/onezerosix/misc-matlab-scripts/master/pictures/lsquare_plot_with_qr_example_graph.png" width="50%" alt="example plot">
+
+### Natural Clamped Cubic Spline Plot
+
+This script interpolates given coordinates to find a natural clamped cubic spline function and plots the results.
+
+The output includes vectors for the intially unknown variables in the spline function S. See the help docs for more info.
+
+##### Example
+
+```
+>> [m,a,b] = nat_clamped_cubic_spline([0;.5;1;1.3;2;3], [0;1.6;2;1.93;1.06;0.38])
+
+m =
+         0   -6.9356   -1.0575   -3.4675    1.7072         0
+
+a =
+         0    3.7780    6.7195    3.1617    0.7755
+
+b =
+    3.7780    4.0881    6.6067    1.3151    0.3800
+```
+
+<img src="https://raw.githubusercontent.com/onezerosix/misc-matlab-scripts/master/pictures/nat_clamped_cubic_spline_example_graph.png" width="50%" alt="example plot">
