@@ -9,9 +9,11 @@ The input values for each function are generally not validated other than their 
 1. [Tridiagonal LU Decomposition Matrix Solver](#tridiagonal-lu-decomposition-matrix-solver)  
   a. [Example](#example)
 2. [Least-Square Plot Using QR Decomposition](#least-square-plot-using-qr-decomposition)  
-  b. [Example](#example-1)
-3. [Natural Clamped Cubic Spline](#natural-clamped-cubic-spline-)  
-  b. [Example](#example-2)
+  a. [Example](#example-1)
+3. [Natural Clamped Cubic Spline](#natural-clamped-cubic-spline)  
+  a. [Example](#example-2)
+4. [Inverse Quadratic Interpolation](#inverse-quadratic-interpolation)  
+  a. [Example](#example~3)
 
 ### Tridiagonal LU Decomposition Matrix Solver
 
@@ -87,3 +89,34 @@ b =
 ```
 
 <img src="https://raw.githubusercontent.com/onezerosix/misc-matlab-scripts/master/pictures/nat_clamped_cubic_spline_example_graph.png" width="50%" alt="example plot">
+
+### Inverse Quadratic Interpolation
+
+This script interpolates a given function at the given points using the inverse quadratic method until the user says to stop. If the numbers appear to diverge or have converged, the interpolating should be stopped.
+
+##### Example
+
+```
+>> x = inverse_quad_interp([0.6, 0.7, 0.9], @(x)x^5 - cos(x)^2)
+    0.8568    0.6000    0.7000
+
+To stop interpolating, type 0, else 1: 1
+    0.8494    0.8568    0.6000
+
+To stop interpolating, type 0, else 1: 1
+    0.8477    0.8494    0.8568
+
+To stop interpolating, type 0, else 1: 1
+    0.8477    0.8477    0.8494
+
+To stop interpolating, type 0, else 1: 1
+    0.8477    0.8477    0.8477
+
+To stop interpolating, type 0, else 1: 1
+    0.8477    0.8477    0.8477
+
+To stop interpolating, type 0, else 1: 0
+
+x =
+    0.8477    0.8477    0.8477
+```
